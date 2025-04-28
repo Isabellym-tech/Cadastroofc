@@ -20,7 +20,7 @@ namespace Cadastroofc
 
         }
 
-       
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -29,12 +29,12 @@ namespace Cadastroofc
             int tamanhoMinino = 3;
             if (usuario.Length < tamanhoMinino)
             {
-                MessageBox.Show("O nome de usuário deve ter pelo menos 3 caracteres.");
+                MessageBox.Show("O nome de usuÃ¡rio deve ter pelo menos 3 caracteres.");
             }
             else
             {
-                MessageBox.Show("Nome de usuário válido.");
-                listBox1.Items.Add($"Usuario cadastrado com sucesso: {usuario}");
+                MessageBox.Show("Nome de usuÃ¡rio vÃ¡lido.");
+                listBox1.Items.Add(usuario);
 
             }
 
@@ -48,40 +48,35 @@ namespace Cadastroofc
 
         {
 
-
-            string novoUsuario = txtusuario.Text;
-            int tamanhoMinino = 3;
-
-
-
-            if (novoUsuario.Length < tamanhoMinino)
-            {
-                MessageBox.Show("O nome de usuário deve ter pelo menos 3 caracteres.");
-                return;
-            }
-
+            string usuario = txtusuario.Text;
 
             if (listBox1.SelectedIndex != -1)
             {
 
-                listBox1.Items[listBox1.SelectedIndex] = novoUsuario;
-                MessageBox.Show("Nome de usuário editado com sucesso.");
-                txtusuario.Clear();
+                int tamanhoMinino = 3;
+                if (usuario.Length < tamanhoMinino)
+                {
+                    MessageBox.Show("O nome de usuÃ¡rio deve ter pelo menos 3 caracteres.");
+                }
 
+                else
+                {
+                   
+                    MessageBox.Show("Nome de usuÃ¡rio vÃ¡lido.");
+                    listBox1.Items[listBox1.SelectedIndex] = usuario;
+
+                }
+
+
+            }
+            else 
+            {
+                MessageBox.Show("Selecione um item para editar.");
             }
 
 
-            else
-                //{
-                //    MessageBox.Show("Nome de usuário inválido.");
-                //    txtusuario.Clear();
-                listBox1.Items.Add($"Usuario editado com sucesso: {novoUsuario}");
-            MessageBox.Show("Novo usuário adicionado com sucesso.");
-            txtusuario.Clear();
 
         }
-           
-       
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -95,10 +90,10 @@ namespace Cadastroofc
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1) 
+            if (listBox1.SelectedIndex != -1)
 
             {
-                
+
                 string itemSelecionado = listBox1.SelectedItem.ToString();
                 txtusuario.Text = itemSelecionado;
             }
