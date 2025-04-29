@@ -31,6 +31,12 @@ namespace Cadastroofc
             {
                 MessageBox.Show("O nome de usuário deve ter pelo menos 3 caracteres.");
             }
+
+            else if (listBox1.Items.Contains(usuario)) //ele vai verificar se o usuario ja esta na list box 
+            {
+                MessageBox.Show("O nome de usuário já existe.");
+            }
+
             else
             {
                 MessageBox.Show("Nome de usuário válido.");
@@ -38,7 +44,7 @@ namespace Cadastroofc
 
             }
 
-
+            txtusuario.Clear();
 
 
 
@@ -74,13 +80,25 @@ namespace Cadastroofc
                 MessageBox.Show("Selecione um item para editar.");
             }
 
-
+            txtusuario.Clear();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string usuario = txtusuario.Text;
 
+            if (listBox1.SelectedIndex != -1)
+            {
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            }
+
+            else
+            {
+                MessageBox.Show("Selecione um item para remover.");
+            }
+
+            txtusuario.Clear();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
